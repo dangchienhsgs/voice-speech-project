@@ -1,18 +1,7 @@
-from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
-
-
-class MplFigure(object):
-    def __init__(self, parent):
-        self.figure = plt.figure(facecolor='white')
-        self.canvas = FigureCanvas(self.figure)
-        self.toolbar = NavigationToolbar(self.canvas, parent)
-
-
 from recorder import *
 import numpy as np
-import matplotlib.pyplot as plt
 from PyQt4 import QtGui, QtCore
+from mpl_figure import *
 
 
 class LiveFFTWidget(QtGui.QWidget):
@@ -92,7 +81,7 @@ class LiveFFTWidget(QtGui.QWidget):
         references for further use"""
         # top plot
         self.ax_top = self.main_figure.figure.add_subplot(211)
-        self.ax_top.set_ylim(-32768, 32768)
+        self.ax_top.set_ylim(-50000, 50000)
         self.ax_top.set_xlim(0, self.time_vect.max())
         self.ax_top.set_xlabel(u'time (ms)', fontsize=6)
 

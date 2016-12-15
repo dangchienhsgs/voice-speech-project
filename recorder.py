@@ -7,7 +7,7 @@ import numpy as np
 
 
 class MicrophoneRecorder(object):
-    def __init__(self, rate=4000, chunksize=1024):
+    def __init__(self, rate=5000, chunksize=1024):
         self.rate = rate
         self.chunksize = chunksize
         self.p = pyaudio.PyAudio()
