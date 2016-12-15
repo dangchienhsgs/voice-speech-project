@@ -79,7 +79,7 @@ def analyze():
     level = 30
     overlap_size = 0
     window_size = 500
-    num_samples, channel = read_audio("wav/Xe.wav")
+    rate, channel = read_audio("wav/Xe.wav")
     print len(channel)
 
     print "Create overlap analysis window"
@@ -95,7 +95,7 @@ def analyze():
         output.append(filter_function[i](a[i], zero=0).take(len(a[i])))
 
     output = combine(np.array(output), overlap_size)
-    wf.write("wav/Xe_out.wav", num_samples, output)
+    wf.write("wav/Xe_out.wav", rate, output)
 
 
 def visualize(data, rate, name):
